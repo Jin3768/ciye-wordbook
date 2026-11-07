@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>词页 · 牛津高阶四步讲词</title>
+<meta name="description" content="一页讲透一个词：全部中文意思、常考义、词根词缀、生活例句。为 iPad Safari 设计。">
+<meta name="theme-color" content="#17456F">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="词页">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+<script>try{var s=JSON.parse(localStorage.getItem('ciye.v1'));if(s&&s.settings&&s.settings.theme==='dark')document.documentElement.dataset.theme='dark'}catch(e){}</script>
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div class="app" id="app">
+  <header class="topbar">
+    <a class="brand" href="#/" aria-label="词页首页">
+      <span class="brand-mark" aria-hidden="true">词</span>
+      <span class="brand-text">
+        <span class="brand-name">词页</span>
+        <span class="brand-sub">牛津高阶 · 四步讲词</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="主导航">
+      <button class="nav-btn is-active" data-view="search">查词</button>
+      <button class="nav-btn" data-view="saved">生词本<span class="nav-count" id="savedCount" hidden></span></button>
+    </nav>
+    <div class="top-actions">
+      <button class="icon-btn" id="randomBtn" aria-label="随机一个词" title="随机一个词">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg>
+      </button>
+      <button class="icon-btn" id="settingsBtn" aria-label="设置" title="设置">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.87l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06A1.7 1.7 0 0 0 15 19.4a1.7 1.7 0 0 0-1 1.55V21a2 2 0 1 1-4 0v-.09A1.7 1.7 0 0 0 9 19.4a1.7 1.7 0 0 0-1.87.34l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1H3a2 2 0 1 1 0-4h.09A1.7 1.7 0 0 0 4.6 9a1.7 1.7 0 0 0-.34-1.87l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.7 1.7 0 0 0 9 4.6a1.7 1.7 0 0 0 1-1.55V3a2 2 0 1 1 4 0v.09A1.7 1.7 0 0 0 15 4.6a1.7 1.7 0 0 0 1.87-.34l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.7 1.7 0 0 0 19.4 9c.2.6.75 1 1.4 1H21a2 2 0 1 1 0 4h-.09a1.7 1.7 0 0 0-1.51 1Z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="workspace" id="workspace">
+    <aside class="panel" id="panel" aria-label="词条列表">
+      <div class="search-box" id="searchBox">
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></svg>
+        <input id="q" type="search" placeholder="查一个词，或输入中文" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" enterkeyhint="search" aria-label="查词">
+        <button class="clear-btn" id="clearBtn" aria-label="清空" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+        </button>
+        <kbd class="search-kbd" id="searchKbd">/</kbd>
+      </div>
+      <div class="filters" id="filters" role="group" aria-label="按考试词表筛选"></div>
+      <div class="alpha" id="alpha" aria-label="按字母浏览"></div>
+      <div class="panel-head" id="panelHead"></div>
+      <div class="word-list" id="list" role="list"></div>
+      <div class="panel-foot" id="panelFoot"></div>
+    </aside>
+
+    <section class="reader" id="reader" aria-label="词条内容" tabindex="-1">
+      <div class="reader-scroll" id="readerScroll"></div>
+    </section>
+  </main>
+</div>
+
+<div class="lesson" id="lesson" hidden></div>
+<div class="sheet" id="sheet" hidden></div>
+<div class="review" id="review" role="dialog" aria-modal="true" aria-label="复习生词" hidden></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
